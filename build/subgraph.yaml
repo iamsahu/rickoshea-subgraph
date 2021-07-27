@@ -1,6 +1,6 @@
 specVersion: 0.0.2
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: StreamExchange
@@ -17,8 +17,8 @@ dataSources:
         - Distribution
       abis:
         - name: StreamExchange
-          file: ./abis/StreamExchange.json
+          file: StreamExchange/abis/StreamExchange.json
       eventHandlers:
         - event: Distribution(uint256,uint256,address)
           handler: handleDistribution
-      file: ./src/mapping.ts
+      file: StreamExchange/StreamExchange.wasm
