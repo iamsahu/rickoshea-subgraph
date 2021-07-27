@@ -1,0 +1,23 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: StreamExchange
+    network: matic
+    source:
+      address: "0xd100a207d5b5902999ad49853f6451d6a93771a4"
+      abi: StreamExchange
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.2
+      language: wasm/assemblyscript
+      entities:
+        - Distribution
+      abis:
+        - name: StreamExchange
+          file: ./abis/StreamExchange.json
+      eventHandlers:
+        - event: Distribution(uint256,uint256,address)
+          handler: handleDistribution
+      file: ./src/mapping.ts
